@@ -1,0 +1,80 @@
+// create new images for 53 cards
+const CARD_IMAGES = [...Array(52)].map(() => new Image());
+
+const DECK_RESET = new Image();
+const CARD_BACK = new Image();
+const COLUMN_MARKER = new Image();
+const WIN_PILE_MARKER_SPADES = new Image();
+const WIN_PILE_MARKER_CLUBS = new Image();
+const WIN_PILE_MARKER_HEARTS = new Image();
+const WIN_PILE_MARKER_DIAMONDS = new Image();
+
+const SUFFEL_SOUND = new Audio();
+const ERROR_SOUND = new Audio();
+const DRAW_SOUND = new Audio();
+
+// these should be in order of A-K and Spades->Clubs->Hearts->Diamonds
+CARD_IMAGES[0].src = "../images/Spades/AofSpades.png";
+CARD_IMAGES[1].src = "../images/Spades/2ofSpades.png";
+CARD_IMAGES[2].src = "../images/Spades/3ofSpades.png";
+CARD_IMAGES[3].src = "../images/Spades/4ofSpades.png";
+CARD_IMAGES[4].src = "../images/Spades/5ofSpades.png";
+CARD_IMAGES[5].src = "../images/Spades/6ofSpades.png";
+CARD_IMAGES[6].src = "../images/Spades/7ofSpades.png";
+CARD_IMAGES[7].src = "../images/Spades/8ofSpades.png";
+CARD_IMAGES[8].src = "../images/Spades/9ofSpades.png";
+CARD_IMAGES[9].src = "../images/Spades/10ofSpades.png";
+CARD_IMAGES[10].src = "../images/Spades/JofSpades.png";
+CARD_IMAGES[11].src = "../images/Spades/QofSpades.png";
+CARD_IMAGES[12].src = "../images/Spades/KofSpades.png";
+CARD_IMAGES[13].src = "../images/Clubs/AofClubs.png";
+CARD_IMAGES[14].src = "../images/Clubs/2ofClubs.png";
+CARD_IMAGES[15].src = "../images/Clubs/3ofClubs.png";
+CARD_IMAGES[16].src = "../images/Clubs/4ofClubs.png";
+CARD_IMAGES[17].src = "../images/Clubs/5ofClubs.png";
+CARD_IMAGES[18].src = "../images/Clubs/6ofClubs.png";
+CARD_IMAGES[19].src = "../images/Clubs/7ofClubs.png";
+CARD_IMAGES[20].src = "../images/Clubs/8ofClubs.png";
+CARD_IMAGES[21].src = "../images/Clubs/9ofClubs.png";
+CARD_IMAGES[22].src = "../images/Clubs/10ofClubs.png";
+CARD_IMAGES[23].src = "../images/Clubs/JofClubs.png";
+CARD_IMAGES[24].src = "../images/Clubs/QofClubs.png";
+CARD_IMAGES[25].src = "../images/Clubs/KofClubs.png";
+CARD_IMAGES[26].src = "../images/Hearts/AofHearts.png";
+CARD_IMAGES[27].src = "../images/Hearts/2ofHearts.png";
+CARD_IMAGES[28].src = "../images/Hearts/3ofHearts.png";
+CARD_IMAGES[29].src = "../images/Hearts/4ofHearts.png";
+CARD_IMAGES[30].src = "../images/Hearts/5ofHearts.png";
+CARD_IMAGES[31].src = "../images/Hearts/6ofHearts.png";
+CARD_IMAGES[32].src = "../images/Hearts/7ofHearts.png";
+CARD_IMAGES[33].src = "../images/Hearts/8ofHearts.png";
+CARD_IMAGES[34].src = "../images/Hearts/9ofHearts.png";
+CARD_IMAGES[35].src = "../images/Hearts/10ofHearts.png";
+CARD_IMAGES[36].src = "../images/Hearts/JofHearts.png";
+CARD_IMAGES[37].src = "../images/Hearts/QofHearts.png";
+CARD_IMAGES[38].src = "../images/Hearts/KofHearts.png";
+CARD_IMAGES[39].src = "../images/Dmnds/AofDmnds.png";
+CARD_IMAGES[40].src = "../images/Dmnds/2ofDmnds.png";
+CARD_IMAGES[41].src = "../images/Dmnds/3ofDmnds.png";
+CARD_IMAGES[42].src = "../images/Dmnds/4ofDmnds.png";
+CARD_IMAGES[43].src = "../images/Dmnds/5ofDmnds.png";
+CARD_IMAGES[44].src = "../images/Dmnds/6ofDmnds.png";
+CARD_IMAGES[45].src = "../images/Dmnds/7ofDmnds.png";
+CARD_IMAGES[46].src = "../images/Dmnds/8ofDmnds.png";
+CARD_IMAGES[47].src = "../images/Dmnds/9ofDmnds.png";
+CARD_IMAGES[48].src = "../images/Dmnds/10ofDmnds.png";
+CARD_IMAGES[49].src = "../images/Dmnds/JofDmnds.png";
+CARD_IMAGES[50].src = "../images/Dmnds/QofDmnds.png";
+CARD_IMAGES[51].src = "../images/Dmnds/KofDmnds.png";
+
+DECK_RESET.src = "../images/misc/deckReset.png";
+CARD_BACK.src = "../images/misc/cardBack.png";
+COLUMN_MARKER.src = "../images/misc/blankcard.png";
+WIN_PILE_MARKER_SPADES.src = "../images/misc/spadesBack.png";
+WIN_PILE_MARKER_CLUBS.src = "../images/misc/clubBack.png";
+WIN_PILE_MARKER_HEARTS.src = "../images/misc/heartBack.png";
+WIN_PILE_MARKER_DIAMONDS.src = "../images/misc/diamondsBack.png";
+
+SUFFEL_SOUND.src = "../audio/shuffle.wav";
+ERROR_SOUND.src = "../audio/error.wav";
+DRAW_SOUND.src = "../audio/draw.wav";
