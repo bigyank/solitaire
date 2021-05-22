@@ -22,3 +22,11 @@ const FACE_DOWN_CARD_OFFSET = 5;
 const FACE_UP_CARD_OFFSET = 20;
 const DEAL_PILE_CARD_OFFSET = 25;
 const DROP_THRESHOLD = 30;
+
+let deck = null;
+let dealPile = null;
+let winPiles = null;
+let columns = null;
+let locations = null;
+let hand = null;
+let dealType = null;
