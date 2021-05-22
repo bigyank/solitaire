@@ -38,4 +38,22 @@ class Column extends Pile {
 
     return clickIndex;
   }
+
+  validateDrop(card) {
+    if (this.length > 0) {
+      var targetCard = this[this.length - 1];
+
+      if (targetCard.value != card.value + 1) {
+        return false;
+      }
+
+      if (targetCard.colour == card.colour) {
+        return false;
+      }
+    } else if (card.value != 13) {
+      return false;
+    }
+
+    return true;
+  }
 }
