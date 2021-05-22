@@ -13,6 +13,19 @@ class Deck extends Pile {
     }
   }
 
+  detectClicks() {
+    if (
+      hand.x > this.x &&
+      hand.y > this.y &&
+      hand.x < this.x + this.markerW &&
+      hand.y < this.y + this.markerH
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   shuffle() {
     var currentIndex = this.length;
     var temp, randomIndex;
