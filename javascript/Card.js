@@ -19,6 +19,20 @@ class Card {
     }
   }
 
+  detectClicks() {
+    if (
+      hand.x > this.x &&
+      hand.y > this.y &&
+      hand.x < this.x + this.w &&
+      hand.y < this.y + this.h
+    ) {
+      hand.setDragOffset(this.x - hand.x, this.y - hand.y);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   draw() {
     if (this.orientation == FACE_UP) {
       context.drawImage(this.faceImage, this.x, this.y, this.w, this.h);
