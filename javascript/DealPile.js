@@ -18,4 +18,14 @@ class DealPile extends Pile {
     var topCard = this[endIndex];
     this.anchorX = topCard.x + this.cardOffsetX;
   }
+
+  unspreadCards() {
+    for (var i = this.length - 1; i >= 0; i--) {
+      this[i].x = this.x;
+      this[i].y = this.y;
+    }
+
+    this.anchorX = this.x;
+    this.anchorY = this.y;
+  }
 }
