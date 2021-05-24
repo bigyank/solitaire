@@ -56,4 +56,25 @@ class Column extends Pile {
 
     return true;
   }
+
+  push(cards, orientation = FACE_UP) {
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+
+      card.setOrientation(orientation);
+      card.setPos(this.anchorX, this.anchorY);
+
+      Array.prototype.push.call(this, card);
+
+      this.updateAnchorPos();
+    }
+  }
+
+  pop() {
+    var temp = Pile.prototype.pop.call(this);
+
+    this.updateAnchorPos();
+
+    return temp;
+  }
 }
