@@ -77,4 +77,26 @@ class Column extends Pile {
 
     return temp;
   }
+
+  popFromIndex(index) {
+    var temp = Pile.prototype.popFromIndex.call(this, index);
+
+    this.updateAnchorPos();
+
+    return temp;
+  }
+
+  updateAnchorPos() {
+    if (this.length > 0) {
+      var topCard = this[this.length - 1];
+
+      if (topCard.orientation == FACE_UP) {
+        this.anchorY = topCard.y + this.faceUpCardOffsetY;
+      } else {
+        this.anchorY = topCard.y + this.faceDownCardOffsetY;
+      }
+    } else {
+      this.anchorY = this.y;
+    }
+  }
 }
