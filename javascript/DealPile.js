@@ -5,6 +5,26 @@ class DealPile extends Pile {
     this.cardOffsetX = DEAL_PILE_CARD_OFFSET;
   }
 
+  pop() {
+    // Move the anchor to the appropriate position for the next push().
+    // This code accounts for the various possible positions
+    // of cards that have been spread in a triple-deal.
+    if (this.length == 0 || this.length == 1) {
+      this.anchorX = this.x;
+    } else {
+      var topCard = this[this.length - 1];
+      var cardBelow = this[this.length - 2];
+
+      if (topCard.x == cardBelow.x) {
+        this.anchorX = this.x;
+      } else {
+        this.anchorX = topCard.x;
+      }
+    }
+
+    return Pile.prototype.pop.call(this);
+  }
+
   spreadTopCards(numberToReveal) {
     var startIndex = this.length - numberToReveal;
     var endIndex = this.length - 1;
