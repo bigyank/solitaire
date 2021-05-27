@@ -1,3 +1,28 @@
+function computeCursorPosition(pos) {
+  var canvasRect = canvas.getBoundingClientRect();
+
+  var x = pos.clientX - canvasRect.left;
+  var y = pos.clientY - canvasRect.top;
+
+  return new Point(x, y);
+}
+
+function deal() {
+  if (deck.length == 0) {
+    recoverDealPile();
+    return;
+  }
+
+  var dealSize = getDealSize();
+
+  dealPile.unspreadCards();
+  dealPile.push(deck.popFromIndex(deck.length - dealSize));
+
+  if (dealType == TRIPLE_DEAL) {
+    dealPile.spreadTopCards(dealSize);
+  }
+}
+
 function getDealSize() {
   var dealSize = 0;
   while (dealSize < 3 && dealSize < deck.length) {
