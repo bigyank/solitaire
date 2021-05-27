@@ -1,3 +1,29 @@
+function getDealSize() {
+  var dealSize = 0;
+  while (dealSize < 3 && dealSize < deck.length) {
+    dealSize++;
+
+    if (dealType == SINGLE_DEAL) {
+      break;
+    }
+  }
+
+  return dealSize;
+}
+
+function recoverDealPile() {
+  dealPileInitialLength = dealPile.length;
+  for (var i = 0; i < dealPileInitialLength; i++) {
+    deck.push(dealPile.pop(), FACE_DOWN);
+  }
+}
+
+function recoverAllCards() {
+  for (var i = 0; i < locations.length; i++) {
+    deck.push(locations[i].popFromIndex(0), FACE_DOWN);
+  }
+}
+
 // Rendering.
 function render() {
   context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
