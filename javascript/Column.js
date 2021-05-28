@@ -33,7 +33,6 @@ class Column extends Pile {
 
       // If exposed face-down card has been clicked, turn it over.
       if (card.orientation == FACE_DOWN && clickIndex == this.length - 1) {
-        console.log(clickIndex);
         card.setOrientation(FACE_UP);
         this.updateAnchorPos();
       }
