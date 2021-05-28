@@ -1,4 +1,4 @@
-// Prototypes.
+// individual card
 class Card {
   constructor(value, suit, faceImage) {
     this.value = value;
@@ -19,6 +19,7 @@ class Card {
     }
   }
 
+  // if hand click inside the boundry of card then card is clicked
   detectClicks() {
     if (
       hand.x > this.x &&
@@ -41,11 +42,13 @@ class Card {
     }
   }
 
+  // update xasis and yaxis of the card
   setPos(x, y) {
     this.x = x;
     this.y = y;
   }
 
+  // change the face of the card
   setOrientation(orientation) {
     this.orientation = orientation;
   }

@@ -1,3 +1,4 @@
+// main game row
 class Column extends Pile {
   constructor(x, y) {
     super(x, y);
@@ -7,6 +8,7 @@ class Column extends Pile {
     this.markerImage = COLUMN_MARKER;
   }
 
+  // detect the column clicked
   detectClicks() {
     let clickIndex = -1;
     if (this.length > 0) {
@@ -40,24 +42,30 @@ class Column extends Pile {
     return clickIndex;
   }
 
+  //  check if dropped card is valid or not
   validateDrop(card) {
     if (this.length > 0) {
       let targetCard = this[this.length - 1];
 
+      // invalid if value mismatches
       if (targetCard.value != card.value + 1) {
         return false;
       }
 
+      // invalid if the color is same
       if (targetCard.colour == card.colour) {
         return false;
       }
+      // invalid if King card
     } else if (card.value != 13) {
       return false;
     }
 
+    // valid if all filters pass
     return true;
   }
 
+  // add the valid card to the moved array
   push(cards, orientation = FACE_UP) {
     for (let i = 0; i < cards.length; i++) {
       let card = cards[i];
@@ -71,6 +79,7 @@ class Column extends Pile {
     }
   }
 
+  // remove cards from the old array
   pop() {
     let temp = Pile.prototype.pop.call(this);
 
@@ -79,6 +88,7 @@ class Column extends Pile {
     return temp;
   }
 
+  // if multiple cards are grabbed then move card from index
   popFromIndex(index) {
     let temp = Pile.prototype.popFromIndex.call(this, index);
 
