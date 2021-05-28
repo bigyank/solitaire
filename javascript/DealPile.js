@@ -5,6 +5,7 @@ class DealPile extends Pile {
     this.cardOffsetX = DEAL_PILE_CARD_OFFSET;
   }
 
+  // remove the card from the deal array
   pop() {
     if (this.length == 0 || this.length == 1) {
       this.anchorX = this.x;
@@ -22,6 +23,7 @@ class DealPile extends Pile {
     return Pile.prototype.pop.call(this);
   }
 
+  //  reveal cards on the deal
   spreadTopCards(numberToReveal) {
     let startIndex = this.length - numberToReveal;
     let endIndex = this.length - 1;
@@ -36,6 +38,7 @@ class DealPile extends Pile {
     this.anchorX = topCard.x + this.cardOffsetX;
   }
 
+  //  hide cards at the end of the deal
   unspreadCards() {
     for (let i = this.length - 1; i >= 0; i--) {
       this[i].x = this.x;

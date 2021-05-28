@@ -1,3 +1,4 @@
+// get cursor position on the screen
 function computeCursorPosition(pos) {
   let canvasRect = canvas.getBoundingClientRect();
 
@@ -36,6 +37,7 @@ function getDealSize() {
   return dealSize;
 }
 
+//  generate deal cards
 function recoverDealPile() {
   dealPileInitialLength = dealPile.length;
   for (let i = 0; i < dealPileInitialLength; i++) {
@@ -43,13 +45,14 @@ function recoverDealPile() {
   }
 }
 
+//  generate column cards
 function recoverAllCards() {
   for (let i = 0; i < locations.length; i++) {
     deck.push(locations[i].popFromIndex(0), FACE_DOWN);
   }
 }
 
-// Rendering.
+// display cards on the screen
 function render() {
   context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -62,7 +65,7 @@ function render() {
   hand.draw();
 }
 
-// New game.
+// generates cards and displays them on the screen
 function newGame() {
   recoverAllCards();
 
@@ -82,6 +85,7 @@ function newGame() {
   render();
 }
 
+// util function
 function Point(x, y) {
   this.x = x;
   this.y = y;

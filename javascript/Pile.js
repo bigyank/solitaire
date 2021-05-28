@@ -1,3 +1,4 @@
+// main class, this class is extended by other cards
 class Pile extends Array {
   constructor(x = 0, y = 0, markerImage = null) {
     super();
@@ -11,6 +12,7 @@ class Pile extends Array {
     this.markerImage = markerImage;
   }
 
+  // detect clicked cards
   detectClicks() {
     if (this.length > 0) {
       if (this[this.length - 1].detectClicks()) {
@@ -21,6 +23,7 @@ class Pile extends Array {
     return -1;
   }
 
+  // detect if the cards overlaps each other
   detectDrops(card) {
     let dropDistanceX = Math.abs(this.anchorX - card.x);
     let dropDistanceY = Math.abs(this.anchorY - card.y);
@@ -32,6 +35,7 @@ class Pile extends Array {
     }
   }
 
+  // check if the droped card is valid
   validateDrop(card) {
     if (this.length > 0) {
       let targetCard = this[this.length - 1];
@@ -48,6 +52,7 @@ class Pile extends Array {
     return true;
   }
 
+  // add card to the main Array
   push(cards, orientation = FACE_UP) {
     for (let i = 0; i < cards.length; i++) {
       let card = cards[i];
@@ -59,12 +64,15 @@ class Pile extends Array {
     }
   }
 
+  // remove cards from the main array
   pop() {
     let card = Array.prototype.pop.call(this);
 
     return [card];
   }
 
+  // if multiple cards are dragged then
+  // move cards from the given index
   popFromIndex(index) {
     let endSegment = [];
 
@@ -83,6 +91,7 @@ class Pile extends Array {
     return endSegment;
   }
 
+  // draw all the cards to the canvas
   draw() {
     if (this.markerImage) {
       context.drawImage(

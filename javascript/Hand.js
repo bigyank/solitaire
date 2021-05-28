@@ -16,6 +16,7 @@ class Hand extends Pile {
     this.setPos();
   }
 
+  // set the position of the hand
   setPos(pos = new Point(this.x, this.y)) {
     this.x = pos.x;
     this.y = pos.y;

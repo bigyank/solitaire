@@ -2,7 +2,7 @@ class Deck extends Pile {
   constructor(x, y, deckResetImage) {
     super(x, y, deckResetImage);
 
-    // Populate deck.
+    // add deck with generated cards
     for (let i = 0; i < 52; i++) {
       let value = (i % 13) + 1;
       let suit = Math.floor(i / 13);
@@ -13,6 +13,7 @@ class Deck extends Pile {
     }
   }
 
+  // detect click card on the deck
   detectClicks() {
     if (
       hand.x > this.x &&
@@ -26,6 +27,7 @@ class Deck extends Pile {
     }
   }
 
+  // randomize the generated cards
   shuffle() {
     let currentIndex = this.length;
     let temp, randomIndex;
