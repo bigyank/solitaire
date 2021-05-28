@@ -20,11 +20,11 @@ class Hand extends Pile {
     this.x = pos.x;
     this.y = pos.y;
 
-    for (var i = 0; i < this.length; i++) {
-      var card = this[i];
+    for (let i = 0; i < this.length; i++) {
+      let card = this[i];
 
-      var cardX = this.x + this.dragOffsetX;
-      var cardY = this.y + this.dragOffsetY + i * this.cardOffsetY;
+      let cardX = this.x + this.dragOffsetX;
+      let cardY = this.y + this.dragOffsetY + i * this.cardOffsetY;
 
       card.setPos(cardX, cardY);
     }

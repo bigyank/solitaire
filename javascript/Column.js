@@ -8,9 +8,9 @@ class Column extends Pile {
   }
 
   detectClicks() {
+    let clickIndex = -1;
     if (this.length > 0) {
-      var clickIndex = -1;
-      for (var i = this.length - 1; i >= 0; i--) {
+      for (let i = this.length - 1; i >= 0; i--) {
         if (this[i].detectClicks()) {
           clickIndex = i;
           break;
@@ -23,7 +23,7 @@ class Column extends Pile {
 
   processClicks(clickIndex) {
     if (clickIndex > -1) {
-      var card = this[clickIndex];
+      let card = this[clickIndex];
 
       if (card.orientation == FACE_UP) {
         return clickIndex;
@@ -31,6 +31,7 @@ class Column extends Pile {
 
       // If exposed face-down card has been clicked, turn it over.
       if (card.orientation == FACE_DOWN && clickIndex == this.length - 1) {
+        console.log(clickIndex);
         card.setOrientation(FACE_UP);
         this.updateAnchorPos();
       }
@@ -41,7 +42,7 @@ class Column extends Pile {
 
   validateDrop(card) {
     if (this.length > 0) {
-      var targetCard = this[this.length - 1];
+      let targetCard = this[this.length - 1];
 
       if (targetCard.value != card.value + 1) {
         return false;
@@ -58,8 +59,8 @@ class Column extends Pile {
   }
 
   push(cards, orientation = FACE_UP) {
-    for (var i = 0; i < cards.length; i++) {
-      var card = cards[i];
+    for (let i = 0; i < cards.length; i++) {
+      let card = cards[i];
 
       card.setOrientation(orientation);
       card.setPos(this.anchorX, this.anchorY);
@@ -71,7 +72,7 @@ class Column extends Pile {
   }
 
   pop() {
-    var temp = Pile.prototype.pop.call(this);
+    let temp = Pile.prototype.pop.call(this);
 
     this.updateAnchorPos();
 
@@ -79,7 +80,7 @@ class Column extends Pile {
   }
 
   popFromIndex(index) {
-    var temp = Pile.prototype.popFromIndex.call(this, index);
+    let temp = Pile.prototype.popFromIndex.call(this, index);
 
     this.updateAnchorPos();
 
@@ -88,7 +89,7 @@ class Column extends Pile {
 
   updateAnchorPos() {
     if (this.length > 0) {
-      var topCard = this[this.length - 1];
+      let topCard = this[this.length - 1];
 
       if (topCard.orientation == FACE_UP) {
         this.anchorY = topCard.y + this.faceUpCardOffsetY;

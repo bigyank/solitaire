@@ -9,8 +9,8 @@ class DealPile extends Pile {
     if (this.length == 0 || this.length == 1) {
       this.anchorX = this.x;
     } else {
-      var topCard = this[this.length - 1];
-      var cardBelow = this[this.length - 2];
+      let topCard = this[this.length - 1];
+      let cardBelow = this[this.length - 2];
 
       if (topCard.x == cardBelow.x) {
         this.anchorX = this.x;
@@ -23,21 +23,21 @@ class DealPile extends Pile {
   }
 
   spreadTopCards(numberToReveal) {
-    var startIndex = this.length - numberToReveal;
-    var endIndex = this.length - 1;
-    var modifier = 0;
+    let startIndex = this.length - numberToReveal;
+    let endIndex = this.length - 1;
+    let modifier = 0;
 
-    for (var i = startIndex; i <= endIndex; i++) {
+    for (let i = startIndex; i <= endIndex; i++) {
       this[i].x = this.x + modifier * this.cardOffsetX;
       modifier++;
     }
 
-    var topCard = this[endIndex];
+    let topCard = this[endIndex];
     this.anchorX = topCard.x + this.cardOffsetX;
   }
 
   unspreadCards() {
-    for (var i = this.length - 1; i >= 0; i--) {
+    for (let i = this.length - 1; i >= 0; i--) {
       this[i].x = this.x;
       this[i].y = this.y;
     }

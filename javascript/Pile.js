@@ -22,8 +22,8 @@ class Pile extends Array {
   }
 
   detectDrops(card) {
-    var dropDistanceX = Math.abs(this.anchorX - card.x);
-    var dropDistanceY = Math.abs(this.anchorY - card.y);
+    let dropDistanceX = Math.abs(this.anchorX - card.x);
+    let dropDistanceY = Math.abs(this.anchorY - card.y);
 
     if (dropDistanceX < DROP_THRESHOLD && dropDistanceY < DROP_THRESHOLD) {
       return true;
@@ -34,7 +34,7 @@ class Pile extends Array {
 
   validateDrop(card) {
     if (this.length > 0) {
-      var targetCard = this[this.length - 1];
+      let targetCard = this[this.length - 1];
 
       if (targetCard.value != card.value + 1) {
         return false;
@@ -49,8 +49,8 @@ class Pile extends Array {
   }
 
   push(cards, orientation = FACE_UP) {
-    for (var i = 0; i < cards.length; i++) {
-      var card = cards[i];
+    for (let i = 0; i < cards.length; i++) {
+      let card = cards[i];
 
       card.setOrientation(orientation);
       card.setPos(this.anchorX, this.anchorY);
@@ -60,22 +60,22 @@ class Pile extends Array {
   }
 
   pop() {
-    var card = Array.prototype.pop.call(this);
+    let card = Array.prototype.pop.call(this);
 
     return [card];
   }
 
   popFromIndex(index) {
-    var endSegment = [];
+    let endSegment = [];
 
     // From index to end of pile, copy items to new array.
-    for (var i = index; i < this.length; i++) {
+    for (let i = index; i < this.length; i++) {
       endSegment.push(this[i]);
     }
 
     // Clear copied items from pile.
-    var itemsToClear = this.length;
-    for (var i = index; i < itemsToClear; i++) {
+    let itemsToClear = this.length;
+    for (let i = index; i < itemsToClear; i++) {
       this.pop();
     }
 
@@ -95,7 +95,7 @@ class Pile extends Array {
     }
 
     // Draw all cards.
-    for (var i = 0; i < this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       this[i].draw();
     }
   }

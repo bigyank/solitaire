@@ -6,10 +6,9 @@ game.addEventListener("mousedown", function mouseDownOnCanvas(pos) {
     SUFFEL_SOUND.play();
     deal();
   } else {
-    // Scan locations for clicks.
-    // Transfer cards to hand if pickup detected.
-    for (var i = 0; i < locations.length; i++) {
-      var clickIndex = locations[i].detectClicks();
+    // move card to player hand if click is detected
+    for (let i = 0; i < locations.length; i++) {
+      let clickIndex = locations[i].detectClicks();
 
       if (clickIndex > -1) {
         hand.push(locations[i].popFromIndex(clickIndex));
@@ -26,12 +25,12 @@ document.addEventListener("mouseup", function mouseUpOnCanvas(pos) {
   hand.setPos(computeCursorPosition(pos));
 
   if (hand.length > 0) {
-    var dropOK = false;
-    var bottomCardInHand = hand[0];
+    let dropOK = false;
+    let bottomCardInHand = hand[0];
 
-    // Scan locations for drops, perform drop if detected.
-    // Deal pile (location 0) does not accept drops, so scan begins at location 1.
-    for (var i = 1; i < locations.length; i++) {
+    // search for drop location
+    // drop the card if move is valid
+    for (let i = 1; i < locations.length; i++) {
       if (
         locations[i].detectDrops(bottomCardInHand) &&
         locations[i].validateDrop(bottomCardInHand)
@@ -45,7 +44,7 @@ document.addEventListener("mouseup", function mouseUpOnCanvas(pos) {
       }
     }
 
-    // If drop unsuccessful, return cards to pickup location.
+    // return card back if invalid move
     if (!dropOK && hand.pickupLocation > -1) {
       locations[hand.pickupLocation].push(hand.popFromIndex(0));
     }
@@ -54,9 +53,8 @@ document.addEventListener("mouseup", function mouseUpOnCanvas(pos) {
   render();
 });
 
-// drag and drop
+// set the position of card according to the player hand
 document.addEventListener("mousemove", function mouseMoveOnCanvas(pos) {
   hand.setPos(computeCursorPosition(pos));
-
   render();
 });

@@ -1,8 +1,8 @@
 function computeCursorPosition(pos) {
-  var canvasRect = canvas.getBoundingClientRect();
+  let canvasRect = canvas.getBoundingClientRect();
 
-  var x = pos.clientX - canvasRect.left;
-  var y = pos.clientY - canvasRect.top;
+  let x = pos.clientX - canvasRect.left;
+  let y = pos.clientY - canvasRect.top;
 
   return new Point(x, y);
 }
@@ -13,7 +13,7 @@ function deal() {
     return;
   }
 
-  var dealSize = getDealSize();
+  let dealSize = getDealSize();
 
   dealPile.unspreadCards();
   dealPile.push(deck.popFromIndex(deck.length - dealSize));
@@ -24,7 +24,7 @@ function deal() {
 }
 
 function getDealSize() {
-  var dealSize = 0;
+  let dealSize = 0;
   while (dealSize < 3 && dealSize < deck.length) {
     dealSize++;
 
@@ -38,13 +38,13 @@ function getDealSize() {
 
 function recoverDealPile() {
   dealPileInitialLength = dealPile.length;
-  for (var i = 0; i < dealPileInitialLength; i++) {
+  for (let i = 0; i < dealPileInitialLength; i++) {
     deck.push(dealPile.pop(), FACE_DOWN);
   }
 }
 
 function recoverAllCards() {
-  for (var i = 0; i < locations.length; i++) {
+  for (let i = 0; i < locations.length; i++) {
     deck.push(locations[i].popFromIndex(0), FACE_DOWN);
   }
 }
@@ -55,7 +55,7 @@ function render() {
 
   deck.draw();
 
-  for (var i = 0; i < locations.length; i++) {
+  for (let i = 0; i < locations.length; i++) {
     locations[i].draw();
   }
 
@@ -71,8 +71,8 @@ function newGame() {
   deck.reverse();
 
   // Deal columns
-  for (var i = 0; i < columns.length; i++) {
-    for (var j = 0; j < i; j++) {
+  for (let i = 0; i < columns.length; i++) {
+    for (let j = 0; j < i; j++) {
       columns[i].push(deck.pop(), FACE_DOWN);
     }
 

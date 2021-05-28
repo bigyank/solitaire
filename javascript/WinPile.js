@@ -15,7 +15,7 @@ class WinPile extends Pile {
     }
 
     if (this.length > 0) {
-      var targetCard = this[this.length - 1];
+      let targetCard = this[this.length - 1];
 
       if (targetCard.value != card.value - 1) {
         return false;
