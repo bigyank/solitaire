@@ -69,7 +69,7 @@ CARD_IMAGES[51].src = "./images/Dmnds/KofDmnds.png";
 
 DECK_RESET.src = "./images/misc/deckReset.png";
 CARD_BACK.src = "./images/misc/cardBack.png";
-COLUMN_MARKER.src = "../images/misc/blankcard.png";
+COLUMN_MARKER.src = "./images/misc/blankcard.png";
 WIN_PILE_MARKER_SPADES.src = "./images/misc/spadesBack.png";
 WIN_PILE_MARKER_CLUBS.src = "./images/misc/clubBack.png";
 WIN_PILE_MARKER_HEARTS.src = "./images/misc/heartBack.png";
