@@ -15,8 +15,8 @@ const FACE_DOWN = 0;
 const FACE_UP = 1;
 const SINGLE_DEAL = 0;
 const TRIPLE_DEAL = 1;
-const CARD_WIDTH = 100;
-const CARD_HEIGHT = 140;
+const CARD_WIDTH = 140;
+const CARD_HEIGHT = 180;
 
 const FACE_DOWN_CARD_OFFSET = 5;
 const FACE_UP_CARD_OFFSET = 20;
