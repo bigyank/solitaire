@@ -6,9 +6,6 @@ class DealPile extends Pile {
   }
 
   pop() {
-    // Move the anchor to the appropriate position for the next push().
-    // This code accounts for the various possible positions
-    // of cards that have been spread in a triple-deal.
     if (this.length == 0 || this.length == 1) {
       this.anchorX = this.x;
     } else {

@@ -70,7 +70,7 @@ document.addEventListener("mousemove", function mouseMoveOnCanvas(pos) {
 function init() {
   deck = new Deck(10, 10, DECK_RESET);
 
-  dealPile = new DealPile(120, 10);
+  dealPile = new DealPile(160, 10);
 
   winPiles = [
     new WinPile(460, 10, SPADES, WIN_PILE_MARKER_SPADES),
@@ -78,16 +78,6 @@ function init() {
     new WinPile(760, 10, HEARTS, WIN_PILE_MARKER_HEARTS),
     new WinPile(910, 10, DIAMONDS, WIN_PILE_MARKER_DIAMONDS),
   ];
-
-  // columns = [
-  //   new Column(10, 160),
-  //   new Column(120, 160),
-  //   new Column(230, 160),
-  //   new Column(340, 160),
-  //   new Column(450, 160),
-  //   new Column(560, 160),
-  //   new Column(670, 160),
-  // ];
 
   // create card columns
   columns = [];
